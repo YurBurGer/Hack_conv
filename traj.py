@@ -2,7 +2,7 @@ import time
 import drive as dr
 fs=97
 ts=40
-dr.setup_pins()
+
 for i in range(0,2):
     dr.FWD(fs)
     time.sleep(3)

@@ -1,26 +1,24 @@
 import time
 import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BOARD)
+#IN1,2,3,4
+IN=[35,36,37,38]
+#init pins
+GPIO.setup(IN,GPIO.OUT,initial=GPIO.LOW)
+#HIGH to move
+B=[IN[1],IN[2]]
+F=[IN[0],IN[3]]
+R=[IN[1],IN[3]]
+L=[IN[0],IN[2]]
+#enable PWM
+PWM_en=False
+#make pwm instance
+PWM=[31,32]
+GPIO.setup(PWM,GPIO.OUT)
+freq=25000
 
-def setup_pins():
-    GPIO.setmode(GPIO.BOARD)
-    #IN1,2,3,4
-    IN=[35,36,37,38]
-    #init pins
-    GPIO.setup(IN,GPIO.OUT,initial=GPIO.LOW)
-    #HIGH to move
-    B=[IN[1],IN[2]]
-    F=[IN[0],IN[3]]
-    R=[IN[1],IN[3]]
-    L=[IN[0],IN[2]]
-    #enable PWM
-    PWM_en=False
-    #make pwm instance
-    PWM=[31,32]
-    GPIO.setup(PWM,GPIO.OUT)
-    freq=25000
-
-    p1=GPIO.PWM(PWM[0],freq)
-    p2=GPIO.PWM(PWM[1],freq)
+p1=GPIO.PWM(PWM[0],freq)
+p2=GPIO.PWM(PWM[1],freq)
 
 def STOP():
     GPIO.output(IN,GPIO.LOW)
