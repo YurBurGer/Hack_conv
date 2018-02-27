@@ -11,7 +11,7 @@ VIDEO_SOURCE = 1
 TRACKER_TYPE = "KCF"
 
 video = cv2.VideoCapture()
-video.open(1)
+video.open(-10)
 if not video.isOpened():
     raise IOError('Camera has not been opened')
 
@@ -94,7 +94,7 @@ while video.isOpened():
         break
 
     def get_turn():
-        if posX >= 640:
+        if posX >= 320:
             print('Right')
         else:
             print('Left')
