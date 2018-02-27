@@ -1,6 +1,8 @@
 import cv2
 import numpy as np
 import math
+import drive
+from drive import FWD, BCK, LFT, RGT, STOP
 
 HSV_CONTROL_WINDOW = "Control"
 TRACKING_IMAGE_WINDOW = "Tracking"

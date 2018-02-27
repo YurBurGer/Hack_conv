@@ -19,21 +19,25 @@ GPIO.setup(PWM,GPIO.OUT)
 freq=10000
 p=GPIO.PWM(PWM[0],freq)
 
+
 def STOP():
     GPIO.output(IN,GPIO.LOW)
     p.stop()
+
 
 def FWD(speed=None):
     STOP()
     if speed is not None:
         p.start(speed)
     GPIO.output(F,GPIO.HIGH)
-    
+
+
 def BCK(speed=None):
     STOP()
     if speed is not None:
         p.start(speed)
     GPIO.output(B,GPIO.HIGH)
+
 
 def LFT(speed=None):
     STOP()
@@ -46,14 +50,15 @@ def RGT(speed=None):
     if speed is not None:
         p.start(speed)
     GPIO.output(R,GPIO.HIGH)
-    
-try:
-    move=[FWD,BCK,LFT,RGT]
-    for f in move:
-        f()
-        time.sleep(0.5)
-except KeyboardInterrupt:
-    pass
 
-p.stop
-GPIO.cleanup()
+if __name__ == '__main__':
+    try:
+        move=[FWD,BCK,LFT,RGT]
+        for f in move:
+            f()
+            time.sleep(0.5)
+    except KeyboardInterrupt:
+        pass
+
+    p.stop
+    GPIO.cleanup()
