@@ -68,7 +68,7 @@ while (video.isOpened()):
     n = cv2.countNonZero(thresholded)
     cv2.imshow(TRACKING_IMAGE_WINDOW, frame)
     cv2.imshow(FILTERED_IMAGE_WINDOW, thresholded)
-
+    # print(n)
     if cv2.waitKey(1) == 27:
         break
 
@@ -87,7 +87,8 @@ while (video.isOpened()):
 
     def get_distance():
         if n > 1000:
-            print -11.0576 * math.log(4.28264 * 0.000001 * n)
+            # print -11.0576 * math.log(4.28264 * 0.000001 * n)
+            print -12.8 * math.log(3.51703 * 0.000001 * n)
         else:
             print 'too low distance'
     get_distance()
