@@ -1,26 +1,27 @@
 import time
-import drive
+import drive as dr
 fs=97
 ts=40
+dr.setup_pins()
 for i in range(0,2):
-    FWD(fs)
+    dr.FWD(fs)
     time.sleep(3)
-    STOP()
+    dr.STOP()
     time.sleep(0.2)
-    RGT(ts)
+    dr.RGT(ts)
     time.sleep(0.4)
-    STOP()
+    dr.STOP()
     time.sleep(0.2)
-    FWD(fs)
+    dr.FWD(fs)
     time.sleep(1)
-    STOP()
+    dr.STOP()
     time.sleep(0.2)
-    LFT(ts)
+    dr.LFT(ts)
     time.sleep(0.5)
-    STOP()
+    dr.STOP()
     time.sleep(0.2)
-    FWD(fs)
+    dr.FWD(fs)
     time.sleep(2)
-    STOP()
+    dr.STOP()
     time.sleep(0.2)
-
+dr.close_pins()
