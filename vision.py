@@ -82,11 +82,11 @@ while video.isOpened():
         cv2.circle(frame, (posX, posY), 5, np.array([0, 0, 255]), -1)
 
     n = cv2.countNonZero(thresholded)
-    cv2.imshow(TRACKING_IMAGE_WINDOW, frame)
-    cv2.imshow(FILTERED_IMAGE_WINDOW, thresholded)
+    # cv2.imshow(TRACKING_IMAGE_WINDOW, frame)
+    # cv2.imshow(FILTERED_IMAGE_WINDOW, thresholded)
     # print(n)
-    if cv2.waitKey(1) == 27:
-        break
+    # if cv2.waitKey(1) == 27:
+    #     break
 
 
     def get_coordinanes():
@@ -110,5 +110,5 @@ while video.isOpened():
             print 'too low distance'
     get_distance()
 
-video.release()
-cv2.destroyAllWindows()
+# video.release()
+# cv2.destroyAllWindows()
