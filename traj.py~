@@ -1,0 +1,10 @@
+import time
+import drive
+FWD(97)
+time.sleep(3)
+STOP()
+time.sleep(0.2)
+RGT(40)
+time.sleep(0.4)
+STOP()
+time.sleep(0.2)
