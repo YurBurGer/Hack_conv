@@ -78,8 +78,6 @@ while (video.isOpened()):
     if cv2.waitKey(1) == 27:
         break
 
-    def get_coordinanes():
-        return [posX, posY]
     def get_turn():
         if posX >= 640:
             print('Right')
