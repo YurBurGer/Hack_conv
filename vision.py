@@ -13,11 +13,11 @@ VIDEO_SOURCE = 1
 TRACKER_TYPE = "KCF"
 
 video = cv2.VideoCapture()
-video.open(-10)
+video.open(0)
 if not video.isOpened():
     raise IOError('Camera has not been opened')
 
-cv2.namedWindow(HSV_CONTROL_WINDOW, cv2.WINDOW_AUTOSIZE)
+# cv2.namedWindow(HSV_CONTROL_WINDOW, cv2.WINDOW_AUTOSIZE)
 
 
 class Params:
