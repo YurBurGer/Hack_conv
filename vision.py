@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import math
 
 HSV_CONTROL_WINDOW = "Control"
 TRACKING_IMAGE_WINDOW = "Tracking"
@@ -78,6 +79,7 @@ while video.isOpened():
         posY = int(moments['m01'] / moments['m00'])
         cv2.circle(frame, (posX, posY), 5, np.array([0, 0, 255]), -1)
 
+    n = cv2.countNonZero(thresholded)
     cv2.imshow(TRACKING_IMAGE_WINDOW, frame)
     cv2.imshow(FILTERED_IMAGE_WINDOW, thresholded)
 
@@ -87,6 +89,23 @@ while video.isOpened():
 
     def get_coordinanes():
         return [posX, posY]
+
+    if cv2.waitKey(1) == 27:
+        break
+
+    def get_turn():
+        if posX >= 640:
+            print('Right')
+        else:
+            print('Left')
+    # get_turn()
+
+    def get_distance():
+        if n > 1000:
+            print -11.0576 * math.log(4.28264 * 0.000001 * n)
+        else:
+            print 'too low distance'
+    get_distance()
 
 video.release()
 cv2.destroyAllWindows()
