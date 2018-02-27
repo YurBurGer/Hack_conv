@@ -6,10 +6,10 @@ IN=[35,36,37,38]
 #init pins
 GPIO.setup(IN,GPIO.OUT,initial=GPIO.LOW)
 #HIGH to move
-B=[IN[1],IN[2]]
-F=[IN[0],IN[3]]
-R=[IN[1],IN[3]]
-L=[IN[0],IN[2]]
+L=[IN[1],IN[2]]
+R=[IN[0],IN[3]]
+F=[IN[1],IN[3]]
+B=[IN[0],IN[2]]
 #enable PWM
 PWM_en=False
 #make pwm instance
@@ -19,38 +19,39 @@ freq=25000
 
 p1=GPIO.PWM(PWM[0],freq)
 p2=GPIO.PWM(PWM[1],freq)
-
+p1.start(0)
+p2.start(0)
 def STOP():
     GPIO.output(IN,GPIO.LOW)
-    p1.stop()
-    p2.stop()
+    p1.ChangeDutyCycle(0)
+    p2.ChangeDutyCycle(0)
     
 def FWD(speed=None):
     STOP()
     if speed is not None:
-        p1.start(speed)
-        p2.start(speed)
+        p1.ChangeDutyCycle(speed)
+        p2.ChangeDutyCycle(speed)
     GPIO.output(F,GPIO.HIGH)
     
 def BCK(speed=None):
     STOP()
     if speed is not None:
-        p1.start(speed)
-        p2.start(speed)
+        p1.ChangeDutyCycle(speed)
+        p2.ChangeDutyCycle(speed)
     GPIO.output(B,GPIO.HIGH)
 
 def LFT(speed=None):
     STOP()
     if speed is not None:
-        p1.start(speed)
-        p2.start(speed)
+        p1.ChangeDutyCycle(speed)
+        p2.ChangeDutyCycle(speed)
     GPIO.output(L,GPIO.HIGH)
 
 def RGT(speed=None):
     STOP()
     if speed is not None:
-        p1.start(speed)
-        p2.start(speed)
+        p1.ChangeDutyCycle(speed)
+        p2.ChangeDutyCycle(speed)
     GPIO.output(R,GPIO.HIGH)
     
 #try:
